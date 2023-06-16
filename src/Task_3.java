@@ -1,14 +1,17 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Task_3 {
     public static void main(String[] args) {
+        System.out.println("Введите массив целых чисел. Для завершения ввода нажмите CMD+D");
         Scanner scanner = new Scanner(System.in);
         List<Integer> inputNumbers = new ArrayList<>();
-        while (scanner.hasNext()) {
-            inputNumbers.add(scanner.nextInt());
+        try {
+            while (scanner.hasNext()) {
+                inputNumbers.add(scanner.nextInt());
+            }
+        } catch (InputMismatchException ex) {
+            System.out.println("Ввод некорректен. Необходимо ввести целое число");
+            return;
         }
         Integer[] arrayNumbers = inputNumbers.toArray(new Integer[0]);
         multipleOfThree(arrayNumbers);
